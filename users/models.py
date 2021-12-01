@@ -51,8 +51,10 @@ class Profile(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE, null=True, blank=True)  # on_delete=models.CASCADE - models.CASCADE Users uchsa profile ham uchishini korsaadi, null = True - malumotlar bazasida ustunni bo'sh qoldirishga ruxsat beradi, blank=True- formalarda to'ldirmay ketish mumkinligini bildiradi
     name = models.CharField(max_length=100, blank=True, null=True)
     username = models.CharField(max_length=200, blank=True, null=True)
+    location = models.CharField(max_length=200, null=True, blank=True)
     email = models.EmailField(max_length=200, blank=True, null=True)
     short_intro = models.CharField(max_length=200, null=True, blank=True)
+
     bio = models.TextField(blank=True, null=True)
     profile_image = models.ImageField(null=True, blank=True, upload_to='profiles/', default='profiles/user-default.png')
     social_telegram = models.CharField(max_length=200, blank=True, null=True)
