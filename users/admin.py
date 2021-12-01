@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Users
 from django.contrib.auth.admin import UserAdmin
 from django.forms import Textarea
+from .models import Profile, Skill
 
 
 class UserAdminConfig(UserAdmin):
@@ -29,3 +30,5 @@ class UserAdminConfig(UserAdmin):
 
 
 admin.site.register(Users, UserAdminConfig)
+admin.site.register(Profile)
+admin.site.register(Skill)
