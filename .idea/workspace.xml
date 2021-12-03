@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb40dafa-f068-4cab-acf7-a26000254eb1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/users/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/users/login_register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/profiles/telegram.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/social_icons/telegram.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/telegram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pillow-8.4.0-cp39-cp39-win_amd64.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev_search/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/dev_search/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/projects/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/projects/projects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/Screenshot_74_5ucaBhN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/Screenshot_74_FRN2RTm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/Screenshot_74_PaIiVTw.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/templates/users/profiles.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/profiles.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/templates/users/user-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/user-profile.html" afterDir="false" />
@@ -25,6 +34,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -64,7 +79,10 @@
       <workItem from="1638209330542" duration="884000" />
       <workItem from="1638210537317" duration="5392000" />
       <workItem from="1638251949969" duration="6991000" />
-      <workItem from="1638346766448" duration="17609000" />
+      <workItem from="1638346766448" duration="18208000" />
+      <workItem from="1638421556949" duration="1145000" />
+      <workItem from="1638437333929" duration="15576000" />
+      <workItem from="1638523857696" duration="6858000" />
     </task>
     <servers />
   </component>
@@ -81,5 +99,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 import uuid
+
 # Create your models here.
 
 
@@ -41,7 +42,7 @@ class Users(AbstractBaseUser, PermissionsMixin):
     objects = CustomAccountManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'username']
+    REQUIRED_FIELDS = ['username']
 
     def __str__(self):
         return self.username
@@ -54,7 +55,6 @@ class Profile(models.Model):
     location = models.CharField(max_length=200, null=True, blank=True)
     email = models.EmailField(max_length=200, blank=True, null=True)
     short_intro = models.CharField(max_length=200, null=True, blank=True)
-
     bio = models.TextField(blank=True, null=True)
     profile_image = models.ImageField(null=True, blank=True, upload_to='profiles/', default='profiles/user-default.png')
     social_telegram = models.CharField(max_length=200, blank=True, null=True)
@@ -68,7 +68,7 @@ class Profile(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     def __str__(self):
-        return str(self.user.username)
+        return str(self.username)
 
 
 class Skill(models.Model):
@@ -81,6 +81,8 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.name
+
+
 
 
 
