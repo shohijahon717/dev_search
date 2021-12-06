@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Profile, Skill, Users
+from .models import Profile, Skill
+from django.contrib.auth.models import User 
 from django.contrib.auth import login, authenticate
 
 
@@ -11,7 +12,7 @@ def loginPage(request):
         username = request.POST['username']
         password = request.POST['password']
         try:
-            user = Users.objects.get(username=username)
+            user = User.objects.get(username=username)
         except:
             print(f'{username} nomli foydalanuvchi topilmadi')
 
@@ -28,6 +29,7 @@ def loginPage(request):
 
 def profiles(request):
     user_profiles = Profile.objects.all()
+
     context = {'profiles': user_profiles}
     return render(request, 'users/profiles.html', context)
 

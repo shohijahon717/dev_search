@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'dev_search.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dev_search',  # database nomi
+        'NAME': 'developersearch',  # database nomi
         'USER': 'postgres',
         'HOST': '127.0.0.1',
         'PASSWORD': '7171',
@@ -132,4 +132,3 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'users.Users'

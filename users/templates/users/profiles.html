@@ -35,7 +35,11 @@
                 <div class="dev__profile">
                   <img class="avatar avatar--md" src="{{ profile.profile_image.url }}" alt="image" />
                   <div class="dev__meta">
+                    {% if profile.name %}
                     <h3>{{ profile.name }}</h3>
+                    {% else %}
+                    <h3>{{ profile.user.username }}</h3>
+                    {% endif %}
                     <h5>{{ profile.short_intro }}</h5>
                   </div>
                 </div>
