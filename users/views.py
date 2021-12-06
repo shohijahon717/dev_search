@@ -1,13 +1,17 @@
 from django.shortcuts import render, redirect
 from .models import Profile, Skill
 from django.contrib.auth.models import User 
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 
 
 # Create your views here.
 
 
-def loginPage(request):
+def loginUser(request):
+
+    if request.user.is_authenticated:
+        return redirect('profiles')
+
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
@@ -25,6 +29,10 @@ def loginPage(request):
             print("Foydalanuvchi nomi yoki parol xato")
 
     return render(request, 'users/login_register.html')
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
 
 
 def profiles(request):
