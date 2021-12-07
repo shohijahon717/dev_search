@@ -5,11 +5,16 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import  messages
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+
+from .forms import CustomUserCreationForm
 
 # Create your views here.
 
 
 def loginUser(request):
+
+    page='login'
 
     if request.user.is_authenticated:
         return redirect('profiles')
@@ -20,12 +25,13 @@ def loginUser(request):
         try:
             user = User.objects.get(username=username)
         except:
-            messages.error(request, f'{username} nomli foydalanuvchi topilmadi')
+            messages.error(request, f'Foydalanuvchi nomi topilmadi')
 
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
             login(request, user)
+            messages.success(request, 'Tizimga muvaffaqiyatli kirdingiz!')
             return redirect('profiles')
         else:
             messages.error(request, "Foydalanuvchi nomi yoki parol xato")
@@ -34,7 +40,28 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
+    messages.info(request, 'Foydalanuvchi tizimdan chiqdi!')
     return redirect('login')
+
+def registerUser(request):
+    page = 'register'
+    form = CustomUserCreationForm()
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+            
+            messages.success(request, 'Foydalanuvchi hisobi yaratildi!')
+            return redirect('login')
+
+
+        else:
+            messages.success(request, 'Ro\'yxatdan o\'tishda xatolik yuz berdi!')
+
+    context = {'page': page, 'form': form}  
+    return render(request, 'users/login_register.html', context)
 
 
 def profiles(request):
