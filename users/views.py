@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls.conf import path
 from .models import Profile, Skill
 from django.contrib.auth.models import User    
 
@@ -80,3 +81,14 @@ def userProfile(request, pk):
 
     context = {'profile': profile, 'topSkills': topSkills, 'otherSkills': otherSkills}
     return render(request, 'users/user-profile.html', context)
+
+
+
+@login_required(login_url='login')
+def userAccount(request):
+    profile = request.user.profile
+    skills = profile.skill_set.all()
+    projects = profile.project_set.all()
+
+    context={'profile': profile, 'skills': skills, 'projects': projects}
+    return render(request, 'users/account.html', context)
