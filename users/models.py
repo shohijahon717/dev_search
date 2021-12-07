@@ -1,12 +1,16 @@
 from django.db import models
 
 import uuid
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import AbstractUser, User 
+
+from django.conf import settings
 # Create your models here.
 
 
+User._meta.get_field('email')._unique = True
+
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)  # on_delete=models.CASCADE - models.CASCADE Users uchsa profile ham uchishini korsaadi, null = True - malumotlar bazasida ustunni bo'sh qoldirishga ruxsat beradi, blank=True- formalarda to'ldirmay ketish mumkinligini bildiradi
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)  # on_delete=models.CASCADE - models.CASCADE Users uchsa profile ham uchishini korsaadi, null = True - malumotlar bazasida ustunni bo'sh qoldirishga ruxsat beradi, blank=True- formalarda to'ldirmay ketish mumkinligini bildiradi
     name = models.CharField(max_length=100, blank=True, null=True)
     username = models.CharField(max_length=200, blank=True, null=True)
     location = models.CharField(max_length=200, null=True, blank=True)

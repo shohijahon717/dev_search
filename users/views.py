@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Profile, Skill
-from django.contrib.auth.models import User 
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.models import User    
 
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib import  messages
 
 # Create your views here.
 
@@ -18,7 +20,7 @@ def loginUser(request):
         try:
             user = User.objects.get(username=username)
         except:
-            print(f'{username} nomli foydalanuvchi topilmadi')
+            messages.error(request, f'{username} nomli foydalanuvchi topilmadi')
 
         user = authenticate(request, username=username, password=password)
 
@@ -26,7 +28,7 @@ def loginUser(request):
             login(request, user)
             return redirect('profiles')
         else:
-            print("Foydalanuvchi nomi yoki parol xato")
+            messages.error(request, "Foydalanuvchi nomi yoki parol xato")
 
     return render(request, 'users/login_register.html')
 

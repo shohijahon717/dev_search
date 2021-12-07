@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'dev_search.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'developersearch',  # database nomi
+        'NAME': 'devsearch',  # database nomi
         'USER': 'postgres',
         'HOST': '127.0.0.1',
         'PASSWORD': '7171',
