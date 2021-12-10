@@ -35,14 +35,14 @@ class ProfileForm(ModelForm):
             field.widget.attrs.update({'class': 'input'})
 
 
-# class SkillForm(ModelForm):
-#     class Meta:
-#         model = Skill
-#         fields = '__all__'
-#         exclude = ['owner']
+class SkillForm(ModelForm):
+    class Meta:
+        model = Skill
+        fields = '__all__'
+        exclude = ['owner']
 
-#     def __init__(self, *args, **kwargs):
-#         super(SkillForm, self).__init__(*args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        super(SkillForm, self).__init__(*args, **kwargs)
 
-#         for name, field in self.fields.items():
-#             field.widget.attrs.update({'class': 'input'})
+        for name, field in self.fields.items():
+            field.widget.attrs.update({'class': 'input'})
