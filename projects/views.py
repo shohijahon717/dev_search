@@ -1,15 +1,35 @@
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
+
+from projects.utils import searchProject
 from .models import Project, Tag
 from django.contrib.auth.decorators import login_required
+
+from django.db.models import Q
 
 # Create your views here.
 from .forms import ProjectForm
 
 
 def projects(request):
-    projects = Project.objects.all()
-    context = {'projects': projects}
+    #searchProject
+    # 1-usul
+
+    # if request.GET.get('search_query'):
+    #     search_query = request.GET.get('search_query')
+
+    # tag = Tag.objects.filter(name__icontains = search_query)
+    # projects = Project.objects.filter(
+    #     Q(title__icontains=search_query) |
+    #     Q(description__icontains=search_query) |
+    #     Q(owner__name__icontains = search_query) |
+    #     Q(tags__in = tag)
+    # )
+    
+    # 2-usul utils.py da 
+    projects, search_query = searchProject(request)
+
+    context = {'projects': projects, 'search_query': search_query}
     return render(request, 'projects/projects.html', context)
 
 

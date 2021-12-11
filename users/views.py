@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect
 from django.urls.conf import path
 from .models import Profile, Skill
@@ -9,6 +10,10 @@ from django.contrib import  messages
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 
 from .forms import CustomUserCreationForm, ProfileForm, SkillForm
+
+from django.db.models import Q
+
+from .utils import searchProfiles
 
 # Create your views here.
 
@@ -66,9 +71,8 @@ def registerUser(request):
 
 
 def profiles(request):
-    user_profiles = Profile.objects.all()
-
-    context = {'profiles': user_profiles}
+    profiles, search_query = searchProfiles(request)
+    context = {'profiles': profiles, 'search_query': search_query}
     return render(request, 'users/profiles.html', context)
 
 
