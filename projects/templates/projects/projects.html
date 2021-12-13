@@ -27,7 +27,7 @@
             <div class="form__field">
               <label for="formInput#search">Search By Projects </label>
               <input class="input input--text" id="formInput#search" type="text" name="search_query"
-                placeholder="Search by Project Title" value="{{ search_query }}" />
+                placeholder="Search by Project title, tags and description " value="{{ search_query }}" />
             </div>
 
             <input class="btn btn--sub btn--lg" type="submit" value="Search" />
@@ -70,6 +70,7 @@
         </div>
       </div>
     </section>
+
     {% include 'pagination.html' with queryset=projects custom_range=custom_range %}
   </main>
 <hr>

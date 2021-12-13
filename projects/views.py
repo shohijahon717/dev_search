@@ -1,12 +1,15 @@
+
 from django.contrib.auth import login
+from django.core import paginator
 from django.shortcuts import render, redirect
 
-from projects.utils import searchProject
+from projects.utils import searchProject, paginationProjects
 from .models import Project, Tag
 from django.contrib.auth.decorators import login_required
 
 from django.db.models import Q
 
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 # Create your views here.
 from .forms import ProjectForm
 
@@ -28,8 +31,12 @@ def projects(request):
     
     # 2-usul utils.py da 
     projects, search_query = searchProject(request)
+    print(projects)
+    custom_range, projects = paginationProjects(request, projects, 2)
+    print(projects)
+    
 
-    context = {'projects': projects, 'search_query': search_query}
+    context = {'projects': projects, 'search_query': search_query, 'custom_range': custom_range}
     return render(request, 'projects/projects.html', context)
 
 
