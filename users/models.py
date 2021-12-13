@@ -28,6 +28,9 @@ class Profile(models.Model):
     created = models.DateTimeField(auto_now_add=True)  # fields
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
+    class Meta:
+        ordering = ('-created',)
+
     def __str__(self):
         return str(self.username)
 

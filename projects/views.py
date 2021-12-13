@@ -32,7 +32,7 @@ def projects(request):
     # 2-usul utils.py da 
     projects, search_query = searchProject(request)
     print(projects)
-    custom_range, projects = paginationProjects(request, projects, 2)
+    custom_range, projects = paginationProjects(request, projects, 6)
     print(projects)
     
 

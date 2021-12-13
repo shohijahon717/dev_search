@@ -74,7 +74,7 @@ def profiles(request):
     profiles, search_query = searchProfiles(request)
 
     
-    custom_range, profiles = paginateProfiles(request, profiles, 2)
+    custom_range, profiles = paginateProfiles(request, profiles, 3)
 
  
 

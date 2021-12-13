@@ -4,13 +4,10 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 def paginateProfiles(request, profiles, results):
     page = request.GET.get('page')
+    
     paginator = Paginator(profiles, results)
-    print(profiles)
-    print(paginator.num_pages)
-    print(page)
     try:
         profiles = paginator.page(page)
-        print(profiles.object_list)
     except PageNotAnInteger:
         page = 1
         profiles = paginator.page(page)
