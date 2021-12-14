@@ -11,8 +11,8 @@ from django.db.models import Q
 
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 # Create your views here.
-from .forms import ProjectForm
-
+from .forms import ProjectForm, ReviewForm
+from django.contrib import messages
 
 def projects(request):
     #searchProject
@@ -31,9 +31,9 @@ def projects(request):
     
     # 2-usul utils.py da 
     projects, search_query = searchProject(request)
-    print(projects)
+
     custom_range, projects = paginationProjects(request, projects, 6)
-    print(projects)
+
     
 
     context = {'projects': projects, 'search_query': search_query, 'custom_range': custom_range}
@@ -42,7 +42,21 @@ def projects(request):
 
 def project(request, pk):
     projectObj = Project.objects.get(id=pk)
-    context = {'project': projectObj}
+    form = ReviewForm()
+    
+    if request.method == "POST":
+       
+        form = ReviewForm(request.POST) 
+        review = form.save(commit=False)
+        review.project = projectObj
+        review.owner = request.user.profile
+        review.save()
+
+        projectObj.getVoteCount
+
+        messages.success(request, 'Izohingiz muvaffaqiyatli qo\'shildi')
+        return redirect('project', pk=projectObj.id)
+    context = {'project': projectObj, 'form': form} 
     return render(request, 'projects/single-project.html', context)
 
 

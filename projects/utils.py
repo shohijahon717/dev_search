@@ -45,5 +45,5 @@ def searchProject(request):
             )
     else:  
         search_query=''
-        projects = Project.objects.all().order_by('-created')    
+        projects = Project.objects.all()    
     return projects, search_query
