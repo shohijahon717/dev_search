@@ -19,18 +19,18 @@
     <section class="hero-section text-center">
       <div class="container container--narrow">
         <div class="hero-section__box">
-          <h2>Search for <span>Projects</span></h2>
+          <h2><span>Loyihalarni</span> Qidirish</h2>
         </div>
 
         <div class="hero-section__search">
           <form id='searchForm' class="form" action="{% url 'projects' %}" method="get">
             <div class="form__field">
-              <label for="formInput#search">Search By Projects </label>
+              <label for="formInput#search">Loyihalar bo'yicha qidiruv</label>
               <input class="input input--text" id="formInput#search" type="text" name="search_query"
-                placeholder="Search by Project title, tags and description " value="{{ search_query }}" />
+                placeholder="Loyiha nomi, ishlatilgan texnologiyasi, tavsifi orqali qidiring..." value="{{ search_query }}" />
             </div>
 
-            <input class="btn btn--sub btn--lg" type="submit" value="Search" />
+            <input class="btn btn--sub btn--lg" type="submit" value="Qidirish" />
           </form>
         </div>
       </div>

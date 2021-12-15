@@ -3,7 +3,7 @@
   <ul class="container">
 
     {% if queryset.has_previous %}
-        <li><a href="?page={{queryset.previous_page_number}}" class="btn page-link" >&#10094; Prev</a></li>
+        <li><a href="?page={{queryset.previous_page_number}}" class="btn page-link" >&#10094; Orqaga</a></li>
 
     {% endif %}
     {% for page in custom_range %}
@@ -20,35 +20,9 @@
     {% endfor %}
 
     {% if queryset.has_next %}
-        <li><a href="?page={{queryset.next_page_number}}" class="btn page-link"> Next &#10095;</a></li>
+        <li><a href="?page={{queryset.next_page_number}}" class="btn page-link"> Oldinga &#10095;</a></li>
 
     {% endif %}
   </ul>
 </div>
 {% endif %}
-
-<!-- 
-<script type="text/javascript">
-  // Get search form and page links
-  let searchForm = document.getElementById('searchForm')
-  let pageLinks = document.getElementsByClassName('page-link')
-  // ANCURE search form exists
-  if(searchForm){
-      for(let i=0; pageLinks.length>i; i++){
-        pageLinks[i].addEventListener('click', function (e) {
-          e.preventDefault()
-
-        // GET THE DATA ATTRIBUTE
-
-        let page = this.dataset.page  
-        console.log('PAGE:', page)
-        // ADD HIDDEN SEARCH INPUT TO FORM
-        // searchForm.innerHTML += `<input value=${page} name="page" hidden />`
-
-        //submit form
-        // searchForm.submit()
-        })
-      }
-  }
-
-</script> -->

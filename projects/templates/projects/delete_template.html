@@ -2,7 +2,7 @@
 {% block content %}
     <form action="" method="POST">
     {% csrf_token %}
-    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <p>Haqiqatan ham "{{ object }}"ni oʻchirib tashlamoqchimisiz?</p>
     <a href="{% url 'projects' %}">Go Back</a>
     <input type="submit" value="Confirm">
     </form>

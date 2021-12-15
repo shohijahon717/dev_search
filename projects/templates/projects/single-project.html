@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Project</title>
+    <title>Loyiha</title>
 </head>
 <body>
     {% extends "main.html" %}
@@ -15,7 +15,7 @@
     <div class="container">
       <div class="layout">
         <div class="column column--1of3">
-          <h3 class="singleProject__subtitle">Tools & Stacks</h3>
+          <h3 class="singleProject__subtitle">Texnologiya & Dasturlash tillari</h3>
           <div class="singleProject__toolStack">
             {% for tag in project.tags.all %}
             <span class="tag tag--pill tag--sub tag--lg">
@@ -25,11 +25,11 @@
 
           </div>
           {% if project.source_link %}
-          <a class="singleProject__liveLink" href="{{ project.source_link }}" target="_blank"><i class="im im-external-link"></i>Source Code
+          <a class="singleProject__liveLink" href="{{ project.source_link }}" target="_blank"><i class="im im-external-link"></i>Manba kodi
           </a>
           {% endif %}
           {% if project.demo_link %}
-            <a class="singleProject__liveLink" href="{{ project.demo_link }}" target="_blank"><i class="im im-external-link"></i>Live Demo
+            <a class="singleProject__liveLink" href="{{ project.demo_link }}" target="_blank"><i class="im im-external-link"></i>Demo  
             </a>
           {% endif %}
           </div>
@@ -37,13 +37,13 @@
           <img class="singleProject__preview" src="{{ project.featured_image.url }}" alt="portfolio thumbnail" />
           <a href="{% url 'user-profile' project.owner.id %}" class="singleProject__developer">{{ project.owner.name }}</a>
           <h2 class="singleProject__title">{{project.title}}</h2>
-          <h3 class="singleProject__subtitle">About the Project</h3>
+          <h3 class="singleProject__subtitle">Loyiha haqida</h3>
           <div class="singleProject__info">
             {{project.description}}
           </div>
 
           <div class="comments">
-            <h3 class="singleProject__subtitle">Feedback</h3>
+            <h3 class="singleProject__subtitle">Foydalanuvchilar fikri:</h3>
             <h5 class="project--rating">
               {{ project.vote_ratio }}% Postitive Feedback ({{ project.vote_total }} Vote{{project.vote_total|pluralize:"s"}})
             </h5>
@@ -62,7 +62,7 @@
                 {{ field }}
               </div>
               {% endfor %}
-              <input class="btn btn--sub btn--lg" type="submit" value="Comments" />
+              <input class="btn btn--sub btn--lg" type="submit" value="Yuborish" />
             </form>
             {% else %}
             <a href="{% url 'login' %}?next={{request.path}}">Iltimos, sharh qoldirish uchun tizimga kiring</a>

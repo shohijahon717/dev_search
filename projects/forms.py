@@ -10,16 +10,13 @@ class ProjectForm(ModelForm):
          'title',
          'featured_image', 
          'description', 
-         'tags',
           'demo_link',
           'source_link',
-          'vote_total', 
-          'vote_ratio'
+        #   'vote_total', 
+        #   'vote_ratio'
         ]
 
-        widgets = {
-            'tags': forms.CheckboxSelectMultiple(),  # taglarni ptichka bn belgilanadigan qilish un
-        }
+        
 
     def __init__(self, *args, **kwargs):  # formani chiroyli ko'rinishga
         super(ProjectForm, self).__init__(*args, **kwargs)
