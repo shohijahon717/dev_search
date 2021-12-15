@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-codpan4^*!+amemzlzedpdgjtm6z0z+@hw#=bzvvakps6qo*yv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -74,14 +74,24 @@ WSGI_APPLICATION = 'dev_search.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd7hft85l84asoo',  # database nomi
+#         'USER': 'tozhbvncfhtflz',
+#         'HOST': 'ec2-54-195-141-170.eu-west-1.compute.amazonaws.com',
+#         'PASSWORD': 'fb2c143e4fc66468cd210e0dcb1754c591448255aa37bbf39d4d7d8996a18b9c',
+#         'PORT': "5432"  # postgres run bo'lgan port
+#     }
+# }
+
+
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'devsearch',  # database nomi
-        'USER': 'postgres',
-        'HOST': '127.0.0.1',
-        'PASSWORD': '7171',
-        'PORT': "5432"  # postgres run bo'lgan port
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
