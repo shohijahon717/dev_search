@@ -5,8 +5,6 @@ from users.forms import ProfileForm
 from .models import Profile
 from django.contrib.auth.models import User 
 
-# @receiver(post_save, sender=Profile)
-
 
 def createProfile(sender, instance, created, **kwargs):
 
